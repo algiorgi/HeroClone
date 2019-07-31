@@ -42,3 +42,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Fondo
+    uniqueID: 1679154867
+    locked: 0
+  - name: Coleccionables
+    uniqueID: 1401331161
+    locked: 0
+  - name: Bloques
+    uniqueID: 3078795009
+    locked: 0
+  - name: Jugador
+    uniqueID: 298680161
+    locked: 0
