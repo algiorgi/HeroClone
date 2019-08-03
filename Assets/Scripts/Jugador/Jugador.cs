@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Jugador : MonoBehaviour {
 
@@ -13,6 +14,8 @@ public class Jugador : MonoBehaviour {
     public float velocidadDeVuelo = 25f;
     public float velocidad = 8f;
 
+    public delegate void EventoRescatar();
+    public static event EventoRescatar Rescatar;
 
     public void Start() {
         cuerpo = GetComponent<Rigidbody2D>();
@@ -24,6 +27,13 @@ public class Jugador : MonoBehaviour {
         Caminar();
         Volar();
         ComprobarSiEstaCayendo();
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.tag == "Prisionero") {
+            Rescatar();
+            Destroy(collision.gameObject);
+        }
     }
 
     private void Caminar() {
